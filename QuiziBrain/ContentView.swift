@@ -30,29 +30,13 @@ struct ContentView: View {
                 Spacer()
                 
                 HStack {
-                    Button(action: {
-                        print("Tapped choice 1")
-                    }, label: {
-                        ChoiceTextView(choiceText: question.possibleAnswers[0])
-                    })
-                    
-                    Button(action: {
-                        print("Tapped choice 2")
-                    }, label: {
-                        ChoiceTextView(choiceText: question.possibleAnswers[1])
-                    })
-                    
-                    Button(action: {
-                        print("Tapped choice 3")
-                    }, label: {
-                        ChoiceTextView(choiceText: question.possibleAnswers[2])
-                    })
-                    
-                    Button(action: {
-                        print("Tapped choice 4")
-                    }, label: {
-                        ChoiceTextView(choiceText: question.possibleAnswers[3])
-                    })
+                    ForEach(0..<question.possibleAnswers.count) { answerIndex in
+                        Button(action: {
+                            print("Tapped on option with the text: \(question.possibleAnswers[answerIndex])")
+                        }, label: {
+                            ChoiceTextView(choiceText: question.possibleAnswers[answerIndex])
+                        })
+                    }
                 }
             }
         }
