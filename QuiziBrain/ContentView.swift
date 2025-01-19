@@ -25,7 +25,7 @@ struct ContentView: View {
                     .font(.callout)
                     .multilineTextAlignment(.leading)
                     .padding()
-                Text("What was the first computer bug?")
+                Text(question.questionText)
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.leading)
@@ -35,80 +35,31 @@ struct ContentView: View {
                     Button(action: {
                         print("Tapped choice 1")
                     }, label: {
-                        Text("Ant")
-                            .font(.body)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 1)
+                        ChoiceTextView(choiceText: question.possibleAnswers[0])
                     })
                     
                     Button(action: {
                         print("Tapped choice 2")
                     }, label: {
-                        Text("Beetle")
-                            .font(.body)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 1)
+                        ChoiceTextView(choiceText: question.possibleAnswers[1])
                     })
                     
                     Button(action: {
                         print("Tapped choice 3")
                     }, label: {
-                        Text("Moth")
-                            .font(.body)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 1)
+                        ChoiceTextView(choiceText: question.possibleAnswers[2])
                     })
                     
                     Button(action: {
                         print("Tapped choice 4")
                     }, label: {
-                        Text("Fly")
-                            .font(.body)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 1)
+                        ChoiceTextView(choiceText: question.possibleAnswers[3])
                     })
                 }
             }
         }
         .foregroundColor(.white)
     }
-    
-//    var body: some View {
-//        VStack {
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Text 1")
-//                .foregroundStyle(.indigo)
-//                .font(.largeTitle)
-//                .bold()
-//            
-//            // the order matters
-//            Text("Text 2") // First add a border, then a padding
-//                .border(Color.red, width: 1)
-//                .padding()
-//            Text("Text 3") // First add a padding and then add the border
-//                .padding()
-//                .border(Color.green, width: 1)
-//            Text("Hello")
-//                .font(Font.custom("Helvetica", size: 24))
-//            
-//
-//            Text("This is a text much longer than the previous one, and it will wrap")
-//                .multilineTextAlignment(.center)
-//                .padding(EdgeInsets(top: 10, leading: 5, bottom: 7, trailing: 2))
-//                .border(Color.blue, width: 1)
-//        }
-////        .padding()
-//    }
 }
 
 #Preview {
