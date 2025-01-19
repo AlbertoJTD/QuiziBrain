@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+// This is the first .swift file to be processed when the app is run
 @main
 struct QuiziBrainApp: App {
     var body: some Scene {
