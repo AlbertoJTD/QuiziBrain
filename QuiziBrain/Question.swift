@@ -10,5 +10,5 @@
 struct Question {
     let questionText: String
     let possibleAnswers: [String]
-    let correctAnswer: Int
+    let correctAnswerIndex: Int
 }

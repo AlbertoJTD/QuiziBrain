@@ -10,9 +10,9 @@ import SwiftUI
 
 
 struct ContentView: View {
-    let mainColor = Color(red: 20/255, green: 28/255, blue: 58/255)
+    @State var mainColor = Color(red: 20/255, green: 28/255, blue: 58/255)
     
-    let question: Question = Question(questionText: "What was the first computer bug?", possibleAnswers: ["Ant", "Beetle", "Moth", "Fly"], correctAnswer: 2)
+    let question: Question = Question(questionText: "What was the first computer bug?", possibleAnswers: ["Ant", "Beetle", "Moth", "Fly"], correctAnswerIndex: 2)
     
     var body: some View {
         ZStack {
@@ -33,6 +33,7 @@ struct ContentView: View {
                     ForEach(0..<question.possibleAnswers.count) { answerIndex in
                         Button(action: {
                             print("Tapped on option with the text: \(question.possibleAnswers[answerIndex])")
+                            mainColor = (answerIndex == question.correctAnswerIndex) ? .green : .red
                         }, label: {
                             ChoiceTextView(choiceText: question.possibleAnswers[answerIndex])
                         })
