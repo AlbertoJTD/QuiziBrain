@@ -13,6 +13,9 @@ struct ContentView: View {
     let mainColor = Color(red: 20/255, green: 28/255, blue: 58/255)
     let accentColor = Color(red: 48/255, green: 105/255, blue: 240/255)
     
+    let question: Question = Question(questionText: "What was the first computer bug?", possibleAnswers: ["Ant", "Beetle", "Moth", "Fly"], correctAnswer: 2)
+        
+    
     var body: some View {
         ZStack {
             mainColor.ignoresSafeArea()
