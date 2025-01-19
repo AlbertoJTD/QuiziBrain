@@ -15,7 +15,13 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            mainColor
+            mainColor.ignoresSafeArea()
+            
+            VStack {
+                Text("1 / 10")
+                Text("What was the first computer bug?")
+            }
+            .foregroundColor(.white)
         }
     }
     
