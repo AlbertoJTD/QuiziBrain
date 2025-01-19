@@ -27,6 +27,14 @@ struct ContentView: View {
                     .bold()
                     .multilineTextAlignment(.leading)
                 Spacer()
+                
+                HStack {
+                    Button(action: {
+                        print("Tapped choice 1")
+                    }, label: {
+                        Text("Button")
+                    })
+                }
             }
         }
         .foregroundColor(.white)
