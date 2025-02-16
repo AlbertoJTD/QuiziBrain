@@ -26,7 +26,9 @@ struct QuestionView: View {
                         viewModel.makeGuess(atIndex: answerIndex)
                     }, label: {
                         ChoiceTextView(choiceText: question.possibleAnswers[answerIndex])
+                            .background(viewModel.color(forOptionIndex: answerIndex))
                     })
+                    .disabled(viewModel.guessWasMade)
                 }
             }
             
