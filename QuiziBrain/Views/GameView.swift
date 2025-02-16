@@ -10,8 +10,6 @@ import SwiftUI
 
 
 struct GameView: View {
-    let question: Question = Question(questionText: "What was the first computer bug?", possibleAnswers: ["Ant", "Beetle", "Moth", "Fly"], correctAnswerIndex: 2)
-    
     @StateObject var viewModel = GameViewModel()
     
     var body: some View {
@@ -26,10 +24,15 @@ struct GameView: View {
                 
                 QuestionView(question: viewModel.currentQuestion)
             }
+            .foregroundColor(.white)
+            .navigationBarHidden(true)
+            .environmentObject(viewModel)
         }
-        .foregroundColor(.white)
-        .navigationBarHidden(true)
-        .environmentObject(viewModel)
+        .background(
+            NavigationLink(destination: Text("Game Over!"),
+                           isActive: .constant(viewModel.gameIsOver),
+                           label: { EmptyView() })
+        )
     }
 }
 
