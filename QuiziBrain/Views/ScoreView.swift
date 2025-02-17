@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ScoreView: View {
+    let viewModel: ScoreViewModel
+    
     var body: some View {
         ZStack {
             GameColor.main.ignoresSafeArea()
@@ -17,18 +19,17 @@ struct ScoreView: View {
                 VStack {
                     Text("Final Score:")
                         .padding(.bottom)
-                    Text("???%")
+                        .font(.title)
+                    Text("\(viewModel.percentage) %")
                         .font(.largeTitle)
                 }
                 Spacer()
 
-                ForEach(0..<2) { indexQuestion in
-                    HStack {
-                        Text("???")
-                            .font(.system(size: 25))
-                        Text("✅")
-                    }
-                }
+                VStack {
+                    Text("\(viewModel.correctGuesses) ✅")
+                    Text("\(viewModel.incorrectGuesses) ❌")
+                }.font(.system(size: 30))
+                
                 Spacer()
                 
                 NavigationLink(destination: GameView(),
@@ -43,5 +44,5 @@ struct ScoreView: View {
 }
 
 #Preview {
-    ScoreView()
+    ScoreView(viewModel: ScoreViewModel(correctGuesses: 8, incorrectGuesses: 2))
 }
